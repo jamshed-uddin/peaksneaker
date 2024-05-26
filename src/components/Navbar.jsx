@@ -1,35 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
-  const [user] = useState(false);
-  return (
-    // <div className="flex justify-between items-center my-2">
-    //   <div className="text-2xl  font-semibold">Peak Sneaker</div>
-    //   <div>
-    //     <ul className="flex gap-10 items-center text-lg  ">
-    //       <li className="cursor-pointer">Men</li>
-    //       <li className="cursor-pointer">Women</li>
-    //       <li className="cursor-pointer">Discover</li>
-    //     </ul>
-    //   </div>
-    //   <div>
-    //     {!user ? (
-    //       <div className="btn btn-sm">
-    //         <div>Dashboard</div>
-    //         <div className="avatar">
-    //           <div className="w-6 rounded-full ">
-    //             <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-    //           </div>
-    //         </div>
-    //       </div>
-    //     ) : (
-    //       <div className="btn btn-sm">Login</div>
-    //     )}
-    //   </div>
-    // </div>
+  const { user } = useAuth();
+  console.log(user);
 
-    <div className="navbar bg-base-100">
+  return (
+    <div className="navbar bg-base-100 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,47 +28,53 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52 bg-white"
           >
             <li>
-              <Link>Men</Link>
+              <Link to={"/men"}>Men</Link>
             </li>
             <li>
-              <Link>Women</Link>
+              <Link to={"/women"}>Women</Link>
             </li>
             <li>
-              <Link>Discover</Link>
+              <Link to={"/discover"}>Discover</Link>
             </li>
           </ul>
         </div>
-        <h1 className="text-lg lg:text-2xl font-medium">Peak Sneaker</h1>
+        <Link to={"/"}>
+          <h1 className="text-lg lg:text-2xl font-medium">Peak Sneakers</h1>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 text-lg">
           <li>
-            <Link>Men</Link>
+            <Link to={"/men"}>Men</Link>
           </li>
           <li>
-            <Link>Women</Link>
+            <Link to={"/women"}>Women</Link>
           </li>
           <li>
-            <Link>Discover</Link>
+            <Link to={"/discover"}>Discover</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
         <div>
-          {!user ? (
-            <div className="btn btn-sm">
-              <div>Dashboard</div>
-              <div className="avatar">
-                <div className="w-6 rounded-full ">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          {user ? (
+            <Link to={"/dashboard/profile"}>
+              <div className="btn btn-sm">
+                <div>Dashboard</div>
+                <div className="avatar">
+                  <div className="w-6 rounded-full ">
+                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ) : (
-            <div className="btn btn-sm">Login</div>
+            <div className="btn btn-sm">
+              <Link to={"/login"}>Login</Link>
+            </div>
           )}
         </div>
       </div>

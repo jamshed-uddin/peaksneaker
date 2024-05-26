@@ -10,6 +10,15 @@ import Dashboard from "./pages/dashboard/Dashboard.jsx";
 import Home from "./pages/Home.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Discover from "./pages/Discover.jsx";
+import AuthProvider from "./providers/AuthProvider.jsx";
+import ProductDataProvider from "./providers/ProductDataProvider.jsx";
+import MensProduct from "./pages/MensProduct.jsx";
+import WomensProduct from "./pages/WomensProduct.jsx";
+import ProductDetail from "./pages/ProductDetail.jsx";
+import UserProfile from "./pages/dashboard/UserProfile.jsx";
+import AllProducts from "./pages/dashboard/AllProducts.jsx";
+import AddProduct from "./pages/dashboard/AddProduct.jsx";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,8 +31,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "men",
+        element: <MensProduct />,
+      },
+      {
+        path: "women",
+        element: <WomensProduct />,
+      },
+      {
         path: "discover",
         element: <Discover />,
+      },
+      {
+        path: "sneaker/:model/:id",
+        element: <ProductDetail />,
       },
     ],
   },
@@ -37,12 +58,54 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />,
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <UserProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "allproduct",
+        element: (
+          <PrivateRoute>
+            <AllProducts />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "addproduct",
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "editproduct/:id",
+        element: (
+          <PrivateRoute>
+            <AddProduct />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <ProductDataProvider>
+        <RouterProvider router={router} />
+      </ProductDataProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

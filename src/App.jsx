@@ -9,7 +9,7 @@ function App() {
       <div>
         <Navbar />
       </div>
-      <div className="flex-grow">
+      <div className="flex-grow min-h-[calc(100vh-5rem)] mx-2">
         <Outlet />
       </div>
       <div>
