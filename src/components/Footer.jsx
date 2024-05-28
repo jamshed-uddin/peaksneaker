@@ -1,5 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -14,10 +15,16 @@ const Footer = () => {
           <h1 className="text-lg lg:text-2xl font-medium text-center md:text-start">
             Peak Sneakers
           </h1>
-          <div className="flex gap-4 justify-evenly">
-            <span>f</span>
-            <span>insta</span>
-            <span>tw</span>
+          <div className="flex gap-4 justify-evenly mt-1">
+            <span>
+              <FaFacebookF />
+            </span>
+            <span>
+              <FaInstagram />
+            </span>
+            <span>
+              <FaXTwitter />
+            </span>
           </div>
         </div>
 

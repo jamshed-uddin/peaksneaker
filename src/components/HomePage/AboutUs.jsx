@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const AboutUs = () => {
@@ -19,13 +18,13 @@ const AboutUs = () => {
         </h1>
         <h2 className="text-xl font-light mt-2">
           At Peak Sneakers we understand that a great pair of sneaker is more
-          than just footwear.It's a lifestyle.Our diverse range of sneakers is
-          to meet the needs of every customer.Our selection includes the most
+          than just footwear.Its a lifestyle.Our diverse range of sneakers is to
+          meet the needs of every customer.Our selection includes the most
           sought after brands and exclusive drops, ensuring you always stay
           ahead of the trends.Come explore our collection and find your perfect
           pair today.
         </h2>
-        <Link to={"/discover"}>
+        <Link to={"/discover"} preventScrollReset={true}>
           <span className="underline  text-lg">Shop now</span>
         </Link>
       </div>

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 const ProductDetail = () => {
-  const { id, model } = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [productLoading, setProductLoading] = useState(false);
 
@@ -29,10 +29,10 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className=" h-[calc(100vh-6rem)] mt-3">
+    <div className=" min-h-[calc(100vh-6rem)] mt-3">
       <div className="md:flex items-center h-full gap-5">
         {/* image */}
-        <div className="md:w-1/2 overflow-hidden  h-full">
+        <div className="md:w-1/2 overflow-hidden  h-1/2">
           <div className="h-full w-full overflow-hidden">
             <img
               className="h-full w-full object-cover"

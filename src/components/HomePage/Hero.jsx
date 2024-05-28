@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { HiArrowLongRight } from "react-icons/hi2";
 const Hero = () => {
   const [heroProduct, setHeroProduct] = useState();
 
@@ -31,7 +31,12 @@ const Hero = () => {
           <div className="absolute md:bottom-5 bottom-3 left-0 ">
             <h1 className="text-3xl mb-4 ml-4 flex items-center gap-2">
               <Link to={`/sneaker/${heroProduct?.model}/${heroProduct?.id}`}>
-                <span> {heroProduct?.model}</span>
+                <span className="flex items-end gap-2">
+                  {heroProduct?.model}{" "}
+                  <span>
+                    <HiArrowLongRight />
+                  </span>
+                </span>
               </Link>
             </h1>
           </div>

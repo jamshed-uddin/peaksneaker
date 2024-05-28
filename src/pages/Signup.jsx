@@ -47,6 +47,9 @@ const Signup = () => {
       await userSignup(email, password);
     } catch (error) {
       setLoading((p) => !p);
+      if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+        setError("An account with this email already exists.");
+      }
     }
   };
 

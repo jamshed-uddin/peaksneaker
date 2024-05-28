@@ -1,9 +1,13 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import useProduct from "../hooks/useProduct";
+import {
+  HiOutlinePencilSquare,
+  HiOutlineArchiveBoxXMark,
+} from "react-icons/hi2";
 
 const ProductCard = ({ product, placedIn }) => {
   const productModel = product.model.split(" ").join("-");
@@ -37,18 +41,27 @@ const ProductCard = ({ product, placedIn }) => {
   return (
     <div className="h-54 relative ">
       {placedIn === "dashboard" && (
-        <div className="absolute top-0 right-0 pr-2 z-30">
+        <div className="absolute  right-0 top-2 pr-2 z-30">
           <div className="flex gap-3">
-            <Link to={`/dashboard/editproduct/${product.id}`} replace="true">
-              <span className="cursor-pointer">Edit</span>
+            <Link to={`/dashboard/editproduct/${product.id}`} replace>
+              <span className="cursor-pointer border-[1.3px] border-black rounded-xl px-3 flex items-center gap-1">
+                <HiOutlinePencilSquare />
+                <span>Edit</span>
+              </span>
             </Link>
-            <span onClick={handleProductDelete} className="cursor-pointer">
-              Delete
+            <span
+              onClick={handleProductDelete}
+              className="cursor-pointer flex items-center gap-1 border-[1.3px] text-red-600 border-red-600 rounded-xl px-3"
+            >
+              <HiOutlineArchiveBoxXMark /> <span>Delete</span>
             </span>
           </div>
         </div>
       )}
-      <Link to={`/sneaker/${productModel}/${product.id}`}>
+      <Link
+        to={`/sneaker/${productModel}/${product.id}`}
+        preventScrollReset={true}
+      >
         <div className="h-[90%] w-full ">
           <img
             className="h-full w-full object-cover"

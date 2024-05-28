@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const {
@@ -123,10 +124,10 @@ const Login = () => {
           <h2 className="text-xl font-semibold">Or, continue with</h2>
           <div className="flex justify-center items-center gap-3">
             <button onClick={handleGoogleLogin} className="btn btn-sm ">
-              Google
+              <FaGoogle />
             </button>
             <button onClick={handleGithubLogin} className="btn btn-sm ">
-              Github
+              <FaGithub />
             </button>
           </div>
         </div>

@@ -11,8 +11,7 @@ const NewReleases = () => {
     <div>
       <div className="flex items-center justify-between">
         <Title title={"New releases"} />
-        <Link to={"/releases"}>
-          {" "}
+        <Link to={"/releases"} preventScrollReset={true}>
           <span className="underline">See all</span>
         </Link>
       </div>

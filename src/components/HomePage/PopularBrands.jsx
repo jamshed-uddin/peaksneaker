@@ -1,4 +1,3 @@
-import React from "react";
 import nike from "../../assets/Nike-Logo-700x394.png";
 import adidas from "../../assets/Adidas-Logo-700x394.png";
 import puma from "../../assets/Puma-Logo-700x394.png";
@@ -15,11 +14,11 @@ const PopularBrands = () => {
     <div>
       <div className="flex justify-between items-end">
         <Title title={"Popular brands"} />
-        <Link to={"/brands"}>
+        <Link to={"/brands"} preventScrollReset={true}>
           <span className="underline">See all</span>
         </Link>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3  gap-x-5 gap-y-9 md:gap-y-12 place-items-center mt-5">
+      <div className="grid grid-cols-2 md:grid-cols-3  gap-x-5 gap-y-9 md:gap-y-12 place-items-center my-9">
         {brandsLogo?.map((logo, index) => (
           <div key={index} className="md:w-48 md:h-28">
             <img

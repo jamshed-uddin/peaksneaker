@@ -1,5 +1,3 @@
-import React from "react";
-import Table from "../../components/Dashboard/Table";
 import DashboardTitle from "../../components/Dashboard/DashboardTitle";
 import useProduct from "../../hooks/useProduct";
 import ProductCard from "../../components/ProductCard";

@@ -22,10 +22,17 @@ import PrivateRoute from "./routes/PrivateRoute.jsx";
 import Releases from "./pages/Releases.jsx";
 import Brands from "./pages/Brands.jsx";
 
+import ScrollToTop from "./ScrollToTop.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <>
+        <ScrollToTop />
+        <App />
+      </>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

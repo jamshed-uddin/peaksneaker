@@ -1,24 +1,38 @@
-import React from "react";
 import useAuth from "../../hooks/useAuth";
 
 const UserProfile = () => {
   const { user } = useAuth();
   return (
-    <div className="mt-3 ">
-      <div className="avatar">
-        <div className="w-28 rounded-full ">
-          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+    <div className="mt-3  flex border-b-2 pb-2 justify-center w-full">
+      <div className=" flex flex-col items-center ">
+        <div className="avatar placeholder  ">
+          <div className="bg-neutral text-neutral-content rounded-full w-24">
+            {user?.photoURL ? (
+              <img
+                className="w-full object-cover"
+                src={user?.photoURL}
+                alt="Profile photo"
+              />
+            ) : (
+              <span className="text-xl">
+                {user?.displayName
+                  ? user?.displayName.at(0).toUpperCase()
+                  : "Image"}
+              </span>
+            )}
+          </div>
         </div>
-      </div>
-      <div>
-        <h1
-          className="
+        <div className="text-center">
+          <h1
+            className="
         text-xl font-semibold"
-        >
-          {user?.displayName || "Users name"}
-        </h1>
-        <h4 className="font-light">{user?.email || "Usersemail@email.com"}</h4>
-        <hr />
+          >
+            {user?.displayName || "Users name"}
+          </h1>
+          <h4 className="font-light">
+            {user?.email || "User email: Not available"}
+          </h4>
+        </div>
       </div>
     </div>
   );
