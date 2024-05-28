@@ -40,7 +40,7 @@ const Login = () => {
       await userLogin(userCredential.email, userCredential.password);
     } catch (error) {
       setLoading((p) => !p);
-      console.log(error.message);
+
       if (error.message === "Firebase: Error (auth/invalid-credential).") {
         setError("Invalid credential");
       }
@@ -52,7 +52,6 @@ const Login = () => {
       await loginWithGoogle();
     } catch (error) {
       setLoading((p) => !p);
-      console.log(error);
     }
   };
   const handleGithubLogin = async () => {
@@ -60,7 +59,6 @@ const Login = () => {
       await loginWithGithub();
     } catch (error) {
       setLoading((p) => !p);
-      console.log(error);
     }
   };
 

@@ -4,7 +4,6 @@ import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
   const { user } = useAuth();
-  console.log(user);
 
   return (
     <div className="navbar bg-base-100 ">
@@ -31,6 +30,12 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52 bg-white"
           >
             <li>
+              <Link to={"/releases"}>New releases</Link>
+            </li>
+            <li>
+              <Link to={"/brands"}>Brands</Link>
+            </li>
+            <li>
               <Link to={"/men"}>Men</Link>
             </li>
             <li>
@@ -47,6 +52,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg">
+          <li>
+            <Link to={"/releases"}>New releases</Link>
+          </li>
+          <li>
+            <Link to={"/brands"}>Brands</Link>
+          </li>
           <li>
             <Link to={"/men"}>Men</Link>
           </li>

@@ -8,7 +8,7 @@ const Hero = () => {
   useEffect(() => {
     const loadHeroProduct = async () => {
       const data = await axios.get("http://localhost:3000/products/1");
-      console.log(data?.data);
+
       setHeroProduct(data?.data);
     };
 
@@ -28,7 +28,7 @@ const Hero = () => {
               loading="lazy"
             />
           </div>
-          <div className="absolute bottom-5 left-0 ">
+          <div className="absolute md:bottom-5 bottom-3 left-0 ">
             <h1 className="text-3xl mb-4 ml-4 flex items-center gap-2">
               <Link to={`/sneaker/${heroProduct?.model}/${heroProduct?.id}`}>
                 <span> {heroProduct?.model}</span>

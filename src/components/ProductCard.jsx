@@ -49,7 +49,7 @@ const ProductCard = ({ product, placedIn }) => {
         </div>
       )}
       <Link to={`/sneaker/${productModel}/${product.id}`}>
-        <div className="h-[90%] w-full">
+        <div className="h-[90%] w-full ">
           <img
             className="h-full w-full object-cover"
             src={product?.imageUrl}

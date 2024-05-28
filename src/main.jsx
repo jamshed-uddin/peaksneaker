@@ -19,6 +19,8 @@ import UserProfile from "./pages/dashboard/UserProfile.jsx";
 import AllProducts from "./pages/dashboard/AllProducts.jsx";
 import AddProduct from "./pages/dashboard/AddProduct.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
+import Releases from "./pages/Releases.jsx";
+import Brands from "./pages/Brands.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "discover",
         element: <Discover />,
+      },
+      {
+        path: "releases",
+        element: <Releases />,
+      },
+      {
+        path: "brands",
+        element: <Brands />,
       },
       {
         path: "sneaker/:model/:id",

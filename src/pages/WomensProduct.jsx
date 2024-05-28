@@ -1,14 +1,13 @@
-import React from "react";
 import useProduct from "../hooks/useProduct";
-import ProductCard from "../components/ProductCard";
 import ProductGrid from "../components/ProductGrid";
+import Title from "../components/Title";
 
 const WomensProduct = () => {
   const { womensProduct } = useProduct();
 
   return (
     <div>
-      <h1 className="text-2xl ">Women&apos;s sneaker</h1>
+      <Title title={"Women's sneaker"} />
       <ProductGrid products={womensProduct} />
     </div>
   );

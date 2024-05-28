@@ -10,11 +10,13 @@ const ProductDataProvider = ({ children }) => {
   const [womensProduct, setWomensProduct] = useState([]);
   const [newReleases, setNewReleases] = useState([]);
   const [trending, setTrending] = useState([]);
+  const [WeRecommend, setWeRecommend] = useState([]);
+  const [brands, setBrands] = useState([]);
 
   useEffect(() => {
     const loadHeroProduct = async () => {
       const data = await axios.get("http://localhost:3000/products");
-      console.log(data?.data);
+
       setAllProduct(data?.data?.reverse());
 
       const mensProduct = data?.data.filter(
@@ -36,10 +38,21 @@ const ProductDataProvider = ({ children }) => {
           product.brand.toLowerCase() === "asics"
       );
 
+      const recommends = data?.data.filter(
+        (product) =>
+          product.brand.toLowerCase() === "nike" ||
+          product.brand.toLowerCase() === "under armour"
+      );
+
+      const allBrands = data?.data.map((product) => product.brand);
+
+      setBrands(allBrands);
+
       setMensProduct(mensProduct);
       setWomensProduct(womensProduct);
       setNewReleases(releases);
       setTrending(trends);
+      setWeRecommend(recommends);
     };
 
     loadHeroProduct();
@@ -52,6 +65,8 @@ const ProductDataProvider = ({ children }) => {
     womensProduct,
     newReleases,
     trending,
+    WeRecommend,
+    brands,
   };
 
   return (

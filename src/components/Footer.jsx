@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="mt-8 mx-2  w-full">
-      <div className="w-full mb-2">
+      <div className="w-full mb-4">
+        {/* footer's top divider */}
         <div className="border-t-2 w-3/4 lg:w-1/2 mx-auto"></div>
       </div>
-      <div className="md:flex justify-between space-y-8">
+
+      <div className="md:flex justify-between  space-y-8 md:space-y-0">
         <div>
           <h1 className="text-lg lg:text-2xl font-medium text-center md:text-start">
             Peak Sneakers
@@ -19,7 +21,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className=" mx-auto text-center md:text-start">
+        <div className="  text-center md:text-start">
           <label htmlFor="" className=" leading-3 font-semibold block mb-2">
             Be the first to know
             <span className="block text-sm font-normal">

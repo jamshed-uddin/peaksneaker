@@ -6,19 +6,27 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [productLoading, setProductLoading] = useState(false);
 
-  console.log(id, model);
-  console.log(product);
   useEffect(() => {
     const loadHeroProduct = async () => {
       setProductLoading(true);
       const data = await axios.get(`http://localhost:3000/products/${id}`);
-      console.log(data?.data);
+
       setProduct(data?.data);
       setProductLoading(false);
     };
 
     loadHeroProduct();
   }, [id]);
+
+  if (productLoading) {
+    return (
+      <div className="h-screen w-screen flex justify-center items-center">
+        <div>
+          <h2 className="2xl font-semibold">Loading...</h2>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className=" h-[calc(100vh-6rem)] mt-3">

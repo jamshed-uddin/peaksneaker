@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardTitle from "../../components/Dashboard/DashboardTitle";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -28,7 +28,7 @@ const AddProduct = () => {
       const data = await axios.get(
         `http://localhost:3000/products/${editingProductId}`
       );
-      console.log(data?.data);
+
       setProductData(data?.data);
     };
 
@@ -69,7 +69,7 @@ const AddProduct = () => {
             navigate(
               `/sneaker/${updatedProduct?.data?.model}/${updatedProduct?.data?.id}`
             );
-            console.log(updatedProduct);
+
             Swal.fire({
               title: "Product updated!",
               text: "Your product has been updated.",
@@ -93,13 +93,11 @@ const AddProduct = () => {
               icon: "success",
             });
             setLoading(false);
-            console.log(addedProduct);
           }
         }
       });
     } catch (error) {
       setLoading(false);
-      console.log(error);
     }
   };
 
@@ -197,14 +195,14 @@ const AddProduct = () => {
             <textarea
               type="text"
               placeholder="Product description"
-              className="input input-bordered w-full  focus:outline-none max-h-40"
+              className="input input-bordered w-full  focus:outline-none min-h-20 max-h-40"
               name="description"
               value={productData.description}
               onChange={handleInputChange}
             />
           </div>
 
-          <div className="text-end">
+          <div className="text-center md:text-end mt-2">
             <button disabled={loading} className="btn btn-sm btn-wide">
               Submit
             </button>

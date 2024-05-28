@@ -33,8 +33,6 @@ const Signup = () => {
     }));
   };
 
-  console.log(userCredential);
-
   const handleUserSignup = async () => {
     try {
       const { email, password, confirmPassword } = userCredential;
@@ -49,10 +47,6 @@ const Signup = () => {
       await userSignup(email, password);
     } catch (error) {
       setLoading((p) => !p);
-      console.log(error.message);
-      if (error.message === "Firebase: Error (auth/invalid-credential).") {
-        setError("Invalid credential");
-      }
     }
   };
 

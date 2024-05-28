@@ -1,15 +1,21 @@
-import React from "react";
 import Title from "../Title";
 import useProduct from "../../hooks/useProduct";
-import ProductCard from "../ProductCard";
+
 import ProductGrid from "../ProductGrid";
+import { Link } from "react-router-dom";
 
 const NewReleases = () => {
   const { newReleases } = useProduct();
-  console.log(newReleases);
+
   return (
     <div>
-      <Title title={"New releases"} />
+      <div className="flex items-center justify-between">
+        <Title title={"New releases"} />
+        <Link to={"/releases"}>
+          {" "}
+          <span className="underline">See all</span>
+        </Link>
+      </div>
       <ProductGrid products={newReleases} />
     </div>
   );
