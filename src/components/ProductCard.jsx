@@ -62,7 +62,7 @@ const ProductCard = ({ product, placedIn }) => {
         to={`/sneaker/${productModel}/${product.id}`}
         preventScrollReset={true}
       >
-        <div className="h-[90%] w-full ">
+        <div className="h-[90%] w-full  ">
           <img
             className="h-full w-full object-cover"
             src={product?.imageUrl}
